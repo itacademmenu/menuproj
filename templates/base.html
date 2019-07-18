@@ -33,7 +33,7 @@
               <li class="nav-item"><a href="" class="nav-link"></a></li>
 
             {% if user.is_authenticated %}
-                <li class="nav-item nav-link">{{ user.get_username }}</li>
+                <div class="username-cl"><li class="nav-link">{{ user.get_username }}</li></div>
                 <li class="nav-item probootstrap-cta probootstrap-seperator"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
                 <li class="nav-item probootstrap-cta probootstrap-seperator"><a class="nav-link" href="{% url 'login' %}">Login</a></li>

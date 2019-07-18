@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',
     'customer.apps.CustomerConfig',
+    'administration.apps.AdministrationConfig'
 ]
 
 LOGIN_REDIRECT_URL = '/'
@@ -125,7 +126,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "administration/static"),
 ]
 
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "itacadem.menu@gmail.com"
+EMAIL_HOST_PASSWORD = "789qwert"
+DEFAULT_FROM_EMAIL = 'MenuService'
