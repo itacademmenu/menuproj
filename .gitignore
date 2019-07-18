@@ -135,4 +135,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+.idea/workspace.xml
 # End of https://www.gitignore.io/api/django

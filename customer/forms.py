@@ -5,4 +5,4 @@ from .models import UserOrder
 class UserOrderForm(forms.Form):
     class Meta:
         model = UserOrder
-
+        fields = '__all__'
