@@ -42,7 +42,6 @@ class OrderUpdateView(generics.UpdateAPIView):
         obj = queryset.get(pk=self.request.data['id'])
         self.check_object_permissions(self.request, obj)
         return obj
->>>>>>> 717ff47571095822d299fd2cbe9546cc4302164e
 
     def update(self, request, *args, **kwargs):
         response = super(OrderUpdateView, self).update(request)
@@ -57,22 +56,12 @@ class OrderDeleteView(generics.DestroyAPIView):
     queryset = UserOrder.objects.all()
     serializer_class = OrderSerializer
 
-<<<<<<< HEAD
-def email(request):
-    subject = 'Thank you for registering to our site'
-    message = ' it  means a world to us '
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = ['garick@bk.ru', 'afdaf@afa.ru']
-    send_mail(subject, message, email_from, recipient_list, fail_silently=False)
-
-=======
     def get_object(self):
         queryset = self.filter_queryset(self.get_queryset())
         obj = queryset.get(pk=self.request.data['id'])
         print(obj)
         self.check_object_permissions(self.request, obj)
         return obj
->>>>>>> 717ff47571095822d299fd2cbe9546cc4302164e
 
     def destroy(self, request, *args, **kwargs):
         mail = get_email(request)

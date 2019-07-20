@@ -15,6 +15,7 @@
                 {{ form.username|attr:"id:inputName"|attr:"class:form-control"|attr:"placeholder:Логин"|attr:"required autofocus" }}
                 <label for="inputName"></label>
               </div>
+
               <div class="form-label-group">
                 {{ form.password|attr:"id:inputPassword"|attr:"class:form-control"|attr:"placeholder:Пароль"|attr:"required" }}
                 <label for="inputPassword"></label>
@@ -23,7 +24,7 @@
                     <p style="color: orangered">Пожалуйста, проверьте правильность написания логина и пароля.</p>
                 {% endif %}
               <button class="btn btn-lg btn-block text-uppercase bg-secondary text-white" type="submit">Войти</button>
-              <a class="d-block text-center mt-2 small" href="{% url 'register' %}">Зарегистрироваться</a>
+              <a class="d-block text-center mt-2 small" style="color:rgba(18,12,17,0.96)" href="{% url 'register' %}">Зарегистрироваться</a>
             </form>
           </div>
         </div>

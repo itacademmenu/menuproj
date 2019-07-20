@@ -41,12 +41,12 @@
             <ul class="navbar-nav mr-sm-2">
                 {% if user.is_authenticated %}
                     <div class="username-cl">
-                        <li class="nav-link">{{ user.get_username }}</li>
+                        <li class="nav-link" style="color:#dedede">{{ user.get_username }}</li>
                     </div>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Выйти</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light" style="color:#dedede" href="{% url 'logout' %}">Выйти</a></li>
                 {% else %}
-                    <li class="nav-item"><a class="nav-link btn btn-outline-dark" href="{% url 'login' %}">Войти</a></li>
-                    <li class="nav-item"><a class="nav-link " href="{% url 'register' %}">Регистрация</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light" style="color:#dedede" href="{% url 'login' %}">Войти</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:#dedede" href="{% url 'register' %}">Регистрация</a></li>
                 {% endif %}
             </ul>
         </div>

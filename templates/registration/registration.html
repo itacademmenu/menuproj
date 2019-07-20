@@ -12,7 +12,7 @@
                     <div class="card-body bg-light text-dark">
                         {% if registered %}
                         <h1>Спасибо за регистрацию!</h1>
-                        <a class="d-block text-center mt-2 small" href="{% url 'login' %}">Войти в аккаунт?</a>
+                        <a class="d-block text-center mt-2 small" style="color:rgba(18,12,17,0.96)" href="{% url 'login' %}">Войти в аккаунт?</a>
                         {% else %}
                         <h5 class="card-title text-center">Регистрация</h5>
                         <form enctype="multipart/form-data" method="POST" class="form-signin">
@@ -42,7 +42,7 @@
                             <button class="btn btn-lg btn-block text-uppercase bg-secondary text-white" type="submit">
                                 Зарегистрироваться
                             </button>
-                            <a class="d-block text-center mt-2 small" href="{% url 'login' %}">Войти</a>
+                            <a class="d-block text-center mt-2 small" style="color:rgba(18,12,17,0.96)" href="{% url 'login' %}">Войти</a>
                         </form>
                         {% endif %}
                     </div>
