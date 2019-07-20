@@ -1,22 +1,53 @@
 {% extends "base.html" %}
-
+{% load widget_tweaks %}
 {% block content %}
 
     <div class="container">
-        <div class="jumbotron">
-            {% if registered %}
-                <h1>Спасибо за регистрацию!</h1>
-            {% else %}
-                <h1>Зарегистрироваться.</h1>
-                <h3>Заполни форму для регистрации.</h3>
+        <div class="row">
+            <div class="col-lg-10 col-xl-4 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                    <div class="card-body bg-light text-dark">
+                        {% if registered %}
+                        <h1>Спасибо за регистрацию!</h1>
+                        <a class="d-block text-center mt-2 small" href="{% url 'login' %}">Войти в аккаунт?</a>
+                        {% else %}
+                        <h5 class="card-title text-center">Регистрация</h5>
+                        <form enctype="multipart/form-data" method="POST" class="form-signin">
+                            {% csrf_token %}
+                            <div class="form-label-group">
+                                {{ user_form.username|attr:"id:inputUserName"|attr:"class:form-control"|attr:"placeholder:Имя"|attr:"reguired autofocus" }}
+                                <label for="inputUserName"></label>
+                            </div>
 
-                <form enctype="multipart/form-data" method="POST">
-                    {% csrf_token %}
-                    {{ user_form.as_p }}
-                    <input type="submit" name="" value="Register">
-                </form>
+                            <div class="form-label-group">
+                                {{ user_form.email|attr:"id:inputEmail"|attr:"class:form-control"|attr:"placeholder:Email адрес"|attr:"reguired" }}
+                                <label for="inputEmail"></label>
+                            </div>
 
-            {% endif %}
+                            <hr>
+
+                            <div class="form-label-group">
+                                {{ user_form.password|attr:"id:inputPassword"|attr:"class:form-control"|attr:"placeholder:Пароль"|attr:"reguired" }}
+                                <label for="inputPassword"></label>
+                            </div>
+
+                            <div class="form-label-group">
+                                {{ user_form.password|attr:"id:inputPassword"|attr:"class:form-control"|attr:"placeholder:Повторите пароль"|attr:"reguired" }}
+                                <label for="inputConfirmPassword"></label>
+                            </div>
+
+                            <button class="btn btn-lg btn-block text-uppercase bg-secondary text-white" type="submit">
+                                Зарегистрироваться
+                            </button>
+                            <a class="d-block text-center mt-2 small" href="{% url 'login' %}">Войти</a>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

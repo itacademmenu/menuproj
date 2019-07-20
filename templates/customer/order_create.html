@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
-
+{% load widget_tweaks %}
 {% block content %}
-    <h1>New comment</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body bg-light text-dark">
+            <h5 class="card-title text-center">Сделайте ваш заказ</h5>
+            <form method="POST"  class="form-signin">{% csrf_token %}
+              <div class="form-label-group">
+                {{ form.order|attr:"id:inputOrder"|attr:"class:form-control"|attr:"placeholder:Введите ваш заказ"|attr:"required autofocus" }}
+                <label for="inputOrder"></label>
+              </div>
 
-    </form>
+              <div class="form-label-group">
+                {{ form.name|attr:"id:inputName"|attr:"class:form-control"|attr:"placeholder:Ваше имя"|attr:"required autofocus" }}
+                <label for="inputName"></label>
+              </div>
+
+              <div class="form-label-group">
+                {{ form.sum_paid|attr:"id:inputSum_paid"|attr:"class:form-control"|attr:"placeholder:Введите сумму"|attr:"required autofocus" }}
+                <label for="inputSum_paid"></label>
+              </div>
+
+                <div class="form-label-group">
+                    {{ form.comment|attr:"id:inputComment"|attr:"class:form-control"|attr:"placeholder:Комментарий"|attr:"required autofocus" }}
+                    <label for="inputComment"></label>
+                </div>
+
+              <button class="btn btn-lg btn-primary btn-block bg-info" type="submit">Сделать заказ</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
-
 

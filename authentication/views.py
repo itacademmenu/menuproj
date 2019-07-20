@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .forms import UserForm
 
-# Create your views here.
+
 class RedirectView(generic.View):
     def get(self, request):
         if request.user.is_authenticated:
