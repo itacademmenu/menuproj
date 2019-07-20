@@ -1,4 +1,29 @@
-{% extends "base.html" %}
-{% block content%}
-    <p>Ты админ</p>
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% block extra_head_content %}
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.css" rel="stylesheet" type="text/css" />
+    <style>
+        body{
+            background-image: url('https://www.publicdomainpictures.net/pictures/30000/velka/plain-white-background.jpg');
+            background-size:cover;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var ORDERS_LIST_JSON_URL = '{% url 'orders' %}';
+        var ORDERS_LIST_JSON_UPDATE = '{% url 'order-update' %}';
+        var ORDERS_LIST_JSON_DELETE = '{% url 'order-delete' %}';
+    </script>
+    {{ block.super }}
+{% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="grid"></table>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/table.js' %}"></script>
 {% endblock %}
